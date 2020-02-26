@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body ontouchstart>
+    <div id="app">
+      <h1>Vue.js 表格排序</h1>
+      <h5>模板練習作業：透過點擊 th 方式，反轉表格的排序</h5>
+      <p>僅需要排序 "價格" "到期日"</p>
+      <div class="alert alert-secondary">
+        <p>提示：</p>
+        <ol class="mb-0">
+          <li>將資料排序改為使用 computed 輸出</li>
+          <li>
+            重新依據點擊排序內容，並透過 computed 輸出。
+          </li>
+          <li>反轉時，th 指標需給與正確方向。</li>
+          <li>加分題：第二次點擊時再次反轉資料</li>
+        </ol>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>品名</th>
+            <th class="click" @click="itemEvent('price')">
+              價格
+              <span
+                class="icon"
+                v-if="sortItem === 'price'"
+                :class="{ 'inverse' : sortID === 1 }"
+              >
+                <i class="fas fa-angle-up text-success"></i>
+              </span>
+            </th>
+            <th class="click" @click="itemEvent('expiryDate')">
+              到期日
+              <span
+                class="icon"
+                v-if="sortItem === 'expiryDate'"
+                :class="{ 'inverse' : sortID === 1 }"
+              >
+                <i class="fas fa-angle-up text-success"></i>
+              </span>
+            </th>
+          </tr>
+          <tr v-for="item in sortData">
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.expiryDate }}</td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </body>
+</html>

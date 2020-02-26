@@ -1,0 +1,44 @@
+body {
+  max-width: 500px;
+  padding: 0;
+  margin: 10% auto;
+  box-sizing: border-box;
+  font-family: monospace, sans-serif;
+  @media (max-width: 575px) {
+    font-size: 0.65rem;
+  }
+}
+
+#app {
+  width: 100%;
+
+  h1 {
+    text-align: center;
+    color: #4fc08d;
+    @media (max-width: 575px) {
+      font-size: 2rem;
+    }
+  }
+
+  h5 {
+    @media (max-width: 575px) {
+      font-size: 13px;
+    }
+  }
+}
+
+.table th.click {
+  cursor: pointer;
+}
+
+.table th.click {
+  cursor: pointer;
+}
+
+.icon {
+  display: inline-block;
+}
+
+.icon.inverse {
+  transform: rotate(180deg);
+}
